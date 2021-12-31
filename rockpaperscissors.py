@@ -1,15 +1,15 @@
-print("Hello World")
-
-runUserCode = True
 import random
 possible_choices = ["rock", "paper", "scissors"]
-
+#-----------------------------------------------------------------------------------------------------------------#
+#ASKING THE USER IF THEY WANT TO PLAY THE GAME
+print("Hello World")
 print("This is my Rock Paper Scissors game.")
 want_to_play = input("Would you like to play?")
 want_to_play = want_to_play.lower()
 
 if want_to_play == "yes": 
   print("Beginning Game.\nEnjoy.")
+  runUserCode = True
 elif want_to_play.lower() == "no":
   print("Ouch.")
   runUserCode = False
@@ -20,15 +20,19 @@ else:
 userPoints = 0
 computerPoints = 0 
 
-print("\n")
+#-----------------------------------------------------------------------------------------------------------------#
 while runUserCode:
+  print("\n")
+  #ASKING USER FOR THEIR CHOICE
   user_choice = input("Choose one: Rock, Paper, or Scissors.")
   user_choice = user_choice.lower()
 
+  #RANDOMIZES COMPUTER'S CHOICE
   computer_choice = random.choice(possible_choices)
   print(f"The computer chose {computer_choice}.")
   computer_choice = computer_choice.lower()
 
+  #COMPARES CHOICES AND DETERMINES THE WINNER AND POINT ALLOCATION
   if user_choice == computer_choice:
     print(f"It's a tie! Both players chose {user_choice}")
     print("No points were awarded")
@@ -63,11 +67,13 @@ while runUserCode:
     else:
       print("")
 
+  #ASKS THE USER IF THEY'S LIKE TO PLAY AGAIN
   print("\n")
   play_again = input("Would you like to play again?")
   print("\n")
   play_again = play_again.lower()
-
+  
+  #CONTINUES THE GAME AFTER DISPLAYING THE SCORE AND WHO IS WINNING
   if play_again == "yes":
     print(f"You have {userPoints}.")
     print(f"The computer has {computerPoints}.")
@@ -84,6 +90,7 @@ while runUserCode:
       print("")
     print("\n")
     continue
+  #ENDS THE CODE AFTER DISPLAYING THE FINAL SCORE
   elif play_again == "no":
     print("\n")
     print("FINAL SCORE")
@@ -92,6 +99,7 @@ while runUserCode:
     print("Thank you for playing!")
     runUserCode = False
 
+  #ASKS THE USER TO ANSWER THE QUESTION AGAIN WITH A CORRECT ANSWER
   else:
     print("Invlaid Entry.\nPlease answer with Yes or No.")
     play_again = input("Would you like to play again?")
